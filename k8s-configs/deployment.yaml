@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-web-pod
+  template:
+    metadata:
+      labels:
+        app: my-web-pod
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
