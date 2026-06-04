@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-custom-project
+  namespace: argocd
+spec:
+  description: "DevOps Application ki Security Boundary"
+  sourceRepos:
+    - '*'
+  destinations:
+    - server: 'https://kubernetes.default.svc'
+      namespace: default
